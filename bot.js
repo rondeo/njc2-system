@@ -289,6 +289,18 @@ client.on('message', function(msg) {
       msg.channel.send({embed:embed})
     }
 });
+client.on("message", message => {
+    if (message.content.startsWith("!nobc")) {
+                 if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' ');
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+  m.send(`${argresult}\n ${m}`);
+  })
+  message.channel.send(`\`${message.guild.members.filter( m => m.presence.status !== 'all').size}\`:mailbox:  عدد المستلمين `);
+  message.delete();
+  };
+  });
  client.on('message', message => {
     if (message.content.startsWith(prefix + "bot")) {
     message.channel.send({
