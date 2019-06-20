@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const devs = ['389090790984515594'];
+const devs = ['502509585370841098'];
 const db = require('quick.db');
 const premium = ['502509585370841098']
 const client = new Discord.Client();   
