@@ -2891,32 +2891,6 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`بدء تشغيل : **${song.title}**`);
 }//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-
-const adminprefix = "!hema";//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-client.on('message', message => {//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-  var argresult = message.content.split(` `).slice(1).join(' ');//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-    if (!devs.includes(message.author.id)) return;//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-    message.reply("**`only for Bot Owner`**")
-if (message.content.startsWith(adminprefix + 'setgame')) {//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
-} else 
-  if (message.content.startsWith(adminprefix + 'setname')) {
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
-return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
-} else
-  if (message.content.startsWith(adminprefix + 'setavatar')) {
-client.user.setAvatar(argresult);
-  message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-      } else     
-if (message.content.startsWith(adminprefix + 'sett')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/idk");
-    message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
-}
-
-});
-
 client.on("message", message => {
  if (message.content === `${prefix}`) {
   const embed = new Discord.RichEmbed() //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
@@ -3534,6 +3508,39 @@ client.on("message", (message) => {
         message.channel.send(`** <@${message.mentions.members.first().id}> Unmuted!??**`);
     }
 })
+const developers = ["502509585370841098","id"]
+client.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'setplay')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'setwatch')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'setlistening')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'setstream')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/dream");
+      message.channel.send(`**✅**`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setava')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
+});
 client.on('guildMemberAdd', member => {
     member.createDM().then(function (channel) {
 return channel.send("")
