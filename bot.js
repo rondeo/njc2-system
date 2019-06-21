@@ -23,7 +23,7 @@ const zalgo = require('zalgolize');
 const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
+const youtube = new YouTube("");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
@@ -1914,7 +1914,7 @@ client.on('guildCreate', guild => {
   New Server Add N J C Community © ?
 اسم السيرفر: ${guild.name}
 صاحب السيرفر: ${guild.owner}**`);
-client.channels.get("474127377245667328").sendEmbed(embed)
+client.channels.get("502509585370841098").sendEmbed(embed)
 });
 client.on('guildDelete', guild => {
          const embed = new Discord.RichEmbed()
